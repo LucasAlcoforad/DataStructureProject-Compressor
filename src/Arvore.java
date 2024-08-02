@@ -24,7 +24,6 @@ public class Arvore {
         }
         System.out.println(i);
         this.show();
-        //quantidade de caracters impares ajeitar
         while (primeiro!=ultimo){
             No novo = new No(primeiro,primeiro.prox,primeiro.vezes+primeiro.prox.vezes);
             ultimo.prox = novo;
@@ -49,24 +48,6 @@ public class Arvore {
         lerArvore(primeiro);
         System.out.println(frase);
     }
-
-    /*public void lerArvore(No raiz) {
-        No atual = raiz;
-        while (i < dado.length()) {
-            if (atual.dadoB != null) {
-                frase += atual.dado;
-                atual = this.primeiro;
-            } else {
-                char c = dado.charAt(i);
-                i++;
-                if (c == '0') {
-                    atual = atual.fEsquerso;
-                } else if (c == '1') {
-                    atual = atual.fDireito;
-                }
-            }
-        }
-    }*/
 
     private void lerArvore(No raiz) {
         No atual = raiz;
@@ -100,21 +81,20 @@ public class Arvore {
             montarArvore(primeiro.fEsquerso);
             montarArvore(primeiro.fDireito);
         }
-        if (c == '1'){ // Use aspas simples para comparar com caracteres
+        if (c == '1'){
             String b = "";
             for (int j = i + 1; j <= i + 8; j++) {
                 b = b + dado.charAt(j);
             }
             primeiro.dadoB = b;
             primeiro.dado = (char) Integer.parseInt(primeiro.dadoB, 2);
-            //converter binário para char depois
             i = i + 9;
         }
     }
 
     public void montarArvore(No raiz){
         char c = dado.charAt(i);
-        if (c == '1'){ // Use aspas simples para comparar com caracteres
+        if (c == '1'){
             String b = "";
             for (int j = i + 1; j <= i + 8; j++) {
                 b = b + dado.charAt(j);
@@ -149,7 +129,6 @@ public class Arvore {
         No anterior = null;
         while (aux!=null){
             if (aux.dadoB.equals(novo.dadoB)){
-                //1. aumentar o numero de vezes
                 aux.vezes++;
                 realocarNo(aux);
                 break;
